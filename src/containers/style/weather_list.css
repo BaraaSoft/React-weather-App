@@ -1,0 +1,4 @@
+table td > *{
+    max-width: 180px;
+    max-height: 120px;
+}

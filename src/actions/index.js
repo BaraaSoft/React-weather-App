@@ -10,6 +10,7 @@ export default function fetchWeather(term) {
     let request = axios.get(url, {
         params: {
             q: term,
+            units: 'metric',
             appid: api.API_KEY
         }
     });
