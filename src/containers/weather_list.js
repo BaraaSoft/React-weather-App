@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Chart from '../components/chart';
 import './style/weather_list.css';
+import CityMap from './google_map';
 
 
 
@@ -28,19 +29,18 @@ class WeatherList extends Component {
         }
     }
 
-    makeListRow(weatherData) {
-        return weatherData.map((data) => {
+    makeListRow(weatherInfo) {
+        return weatherInfo.map((data) => {
             if (!data) {
                 return false;
             }
+            const { lat, lon } = data.city.coord;
             return (
                 <tr key={data.city.id}>
-                    <td>
-                        {data.city.name}
-                    </td>
-                    <Chart color='orange' data={this.extractData(data.list, 'temp')} />
-                    <Chart color='red' data={this.extractData(data.list, 'pres')} />
-                    <Chart color='green' data={this.extractData(data.list, 'humid')} />
+                    <CityMap lat={lat} lon={lon} />
+                    <Chart unit=" °C" color='orange' data={this.extractData(data.list, 'temp')} />
+                    <Chart unit=" Pa" color='red' data={this.extractData(data.list, 'pres')} />
+                    <Chart unit="%" color='green' data={this.extractData(data.list, 'humid')} />
                 </tr>
             );
         })

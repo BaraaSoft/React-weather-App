@@ -1,0 +1,41 @@
+.table-col{
+    width: 200px;
+    height: 150px;
+    position: relative;
+    padding: 0px;
+    margin: 0;
+}
+
+.table-col:hover{
+    background-image:linear-gradient(rgba(0, 0, 0, 0.70),rgba(0, 0, 0, 0.70));
+}
+
+.table-col div:first-child{
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    position: absolute;
+    color: #edd;
+    z-index: 1;
+    opacity: 1;
+}
+
+.label-hidden{
+    visibility: hidden;
+    
+}
+
+.label-visible{
+    visibility: visible;
+}
+
+.circle-shape{
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    border-radius: 50%;
+    padding: 10px;
+    padding-top: 30px;
+    border: 1px solid #e67e22;
+    opacity: 1;
+}
